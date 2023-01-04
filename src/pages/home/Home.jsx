@@ -24,7 +24,6 @@ const Home = () => {
 
   return (
     <>
-    
       <div id="carouselAPI" className="carousel slide" data-ride="carousel">
         <div>
           <ol className="carousel-indicators">
@@ -39,8 +38,10 @@ const Home = () => {
             <li data-target="#carouselAPI" data-slide-to="3"></li>
           </ol>
           <div id="slideDisplay" className="carousel-inner">
-          
-            <NavLink to={`/detail/${arrProduct[0]?.id}`} className="carousel-item active">
+            <NavLink
+              to={`/detail/${arrProduct[0]?.id}`}
+              className="carousel-item active"
+            >
               <div className="row">
                 <div className="col-md-8">
                   <img src={arrProduct[0]?.image} alt="..." />
@@ -56,7 +57,11 @@ const Home = () => {
             </NavLink>
             {arrProduct.slice(1, 4).map((item, index) => {
               return (
-                <NavLink to={`/detail/${item?.id}`} className="carousel-item" key={index}>
+                <NavLink
+                  to={`/detail/${item?.id}`}
+                  className="carousel-item"
+                  key={index}
+                >
                   <div className="row">
                     <div className="col-md-8">
                       <img src={item?.image} alt="..." />
@@ -98,7 +103,11 @@ const Home = () => {
       <div className="heading-bar bg w-50 mt-5">
         <h2>Product Feature </h2>
       </div>
-      <div className="container">
+      <div className="container carousel-content">
+        <div className="color"></div>
+        <div className="color"></div>
+        <div className="color"></div>
+        <div className="color"></div>
         <div id="productDisplay" class="row">
           {arrProduct.map((prod, idx) => {
             return (
