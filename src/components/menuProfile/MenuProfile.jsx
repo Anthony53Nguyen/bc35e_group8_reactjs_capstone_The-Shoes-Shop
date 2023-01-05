@@ -7,32 +7,19 @@ import { getProfileApi } from "../../redux/reducers/userReducer.jsx";
 import Radio from "../input/Radio.jsx";
 import { http } from "../../util/config.jsx";
 import { toast } from "react-toastify";
+import { getFavoriteApi } from "../../redux/reducers/productReducer.jsx";
 
 const MenuProfile = () => {
   const [on, setOn] = useState(true);
   const { profile } = useSelector((state) => state.userReducer);
 
   const dispatch = useDispatch();
-  // const formik = useFormik({
-  //   enableReinitialize: true,
-  //   initialValues: {
-  //     email: profile && profile.email,
-  //     name: profile && profile.name,
-  //     gender: profile && profile.gender,
-  //     phone: profile && profile.phone,
-  //   },
-  //   validationSchema: Yup.object({
-  //     name: Yup.string().required("name cannot be blank !"),
-  //     phone: Yup.string().required("phone cannot be blank !"),
-  //   }),
-  //   async onSubmit(values, { setSubmitting, resetForm }) {
-  //     console.log(values);
-  //   },
-  // });
+  
   const formRef = useRef();
 
   useEffect(() => {
     dispatch(getProfileApi());
+    dispatch(getFavoriteApi());
   }, []);
   return (
     <div className="menu-profile">

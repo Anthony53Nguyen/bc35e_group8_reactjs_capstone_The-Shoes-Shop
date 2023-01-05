@@ -40,10 +40,6 @@ const Detail = () => {
   return (
     <>
       <div className="detail">
-        <div className="color"></div>
-        <div className="color"></div>
-        <div className="color"></div>
-        <div className="color"></div>
         <div className="container">
           <div className="row">
             <div className="col-md-5">
