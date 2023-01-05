@@ -25,7 +25,7 @@
       height: 60px;
     }
     p {
-      @include text($fs-20, $fw-400, #f12711);
+      @include text($fs-20, $fw-400, $color-black);
       height: 90px;
     }
   }

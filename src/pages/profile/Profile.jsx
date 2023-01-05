@@ -1,8 +1,8 @@
-
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+
 import {
   huyStore,
   eraseCookie,
@@ -11,6 +11,7 @@ import {
 } from "../../util/config.jsx";
 const Profile = () => {
   const [on, setOn] = useState(false);
+  
   const navigate = useNavigate();
   const { profile } = useSelector((state) => state.userReducer);
 

@@ -30,7 +30,7 @@ const Home = () => {
             <li
               data-target="#carouselAPI"
               data-slide-to="0"
-              class="active"
+              className="active"
             ></li>
             <li data-target="#carouselAPI" data-slide-to="1"></li>
             <li data-target="#carouselAPI" data-slide-to="2"></li>
@@ -108,7 +108,7 @@ const Home = () => {
         <div className="color"></div>
         <div className="color"></div>
         <div className="color"></div>
-        <div id="productDisplay" class="row">
+        <div id="productDisplay" className="row">
           {arrProduct.map((prod, idx) => {
             return (
               <div className="col-md-4" key={idx}>

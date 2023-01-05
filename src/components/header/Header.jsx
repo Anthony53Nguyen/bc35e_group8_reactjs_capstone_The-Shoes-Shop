@@ -47,7 +47,7 @@ const Header = () => {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <NavLink className="nav-link-cart nav-flex nav-big" to="/search" aria-current="page">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i className="fa-solid fa-magnifying-glass"></i>
                                 Search
                             </NavLink>
                         </li>
