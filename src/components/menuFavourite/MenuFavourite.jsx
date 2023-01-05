@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getFavoriteApi } from "../../redux/reducers/productReducer.jsx";
 import { Pagination } from "antd";
 const pageSize = 6;
 
 const MenuFavourite = () => {
-  const dispatch = useDispatch();
-
   const { productFavorite } = useSelector((state) => state.productReducer);
   const [current, setCurrent] = useState(1);
   const [listProductFavourite, setListProductFavourite] = useState();
-
-  useEffect(() => {
-    dispatch(getFavoriteApi());
-  }, []);
 
   useEffect(() => {
     setListProductFavourite(

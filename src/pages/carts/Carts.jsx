@@ -38,7 +38,7 @@ const Carts = () => {
       data: data,
     });
     if (result && result.status === 200) {
-      alert("Congratulation. You order has been completed");
+      alert("Congratulation. Your order has been completed");
     } else {
       alert("Woooops...your order was failed.  Please try again.");
     }
@@ -110,9 +110,9 @@ const Carts = () => {
                   <td className="text-center">{item.price}</td>
                   <td>
                     <div className="button">
-                      {/* <a href="#" type="button" className="btn btn-primary">
+                      <a href="..." type="button" className="btn btn-primary">
                                                 Edit
-                                            </a> */}
+                                            </a>
                       <a
                         href="..."
                         type="button"
