@@ -20,6 +20,9 @@ const productReducer = createSlice({
     getFavoriteAction: (state, action) => {
       state.productFavorite = action.payload;
     },
+    setProductFavorite: (state, action) => {
+      state.productFavorite = action.payload;
+    },
   },
 });
 
@@ -30,6 +33,10 @@ export const getFavoriteApi = () => {
   };
 };
 
-export const { getProductAction, getProductDetailAction, getFavoriteAction } =
-  productReducer.actions;
+export const {
+  getProductAction,
+  getProductDetailAction,
+  getFavoriteAction,
+  setProductFavorite,
+} = productReducer.actions;
 export default productReducer.reducer;

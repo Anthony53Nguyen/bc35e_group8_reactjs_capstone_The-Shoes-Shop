@@ -1,7 +1,4 @@
 import axios from "axios";
-import { history } from "../index";
-import { isExpired} from "react-jwt";
-
 export const USER_LOGIN = "userLogin";
 export const TOKEN = "accessToken";
 export const TOKEN_CYBER =
@@ -73,9 +70,11 @@ export const http = axios.create({
 //Cấu hình cho resquest đều có token
 http.interceptors.request.use(
   (config) => {
+    const token = JSON.parse(layStore(TOKEN));
+    console.log(token);
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${getCookie(TOKEN)}`,
+      Authorization: `Bearer ${token}`,
       TokenCybersoft: TOKEN_CYBER,
     };
     return config;
@@ -95,21 +94,19 @@ http.interceptors.response.use(
     if (err.response?.status === 400 || err.response?.status === 404) {
       //Lỗi do tham số => backend trả về 400 hoặc 404 mình sẽ xử lý
       alert("tham số không hợp lệ !");
-      //chuyển hướng về home
-      history.push("/");
     }
-    if (err.response?.status === 401 || err.response.status === 403) {
-      const isMyTokenExpired = isExpired(layStore(TOKEN));
-      //token hết hạn
-      if (isMyTokenExpired) {
-        alert("Hết phiên đăng nhập yêu cầu đăng nhập lại !");
-        huyStore(TOKEN);
-        huyStore(USER_LOGIN);
-        //Chuyển hướng trang dạng f5
-        window.location.href = "/login";
-      }
-      history.push("/login");
-    }
+    // if (err.response?.status === 401 || err.response.status === 403) {
+    //   const isMyTokenExpired = isExpired(layStore(TOKEN));
+    //   //token hết hạn
+    //   if (isMyTokenExpired) {
+    //     alert("Hết phiên đăng nhập yêu cầu đăng nhập lại !");
+    //     huyStore(TOKEN);
+    //     huyStore(USER_LOGIN);
+    //     //Chuyển hướng trang dạng f5
+    //     window.location.href = "/login";
+    //   }
+    //   history.push("/login");
+    // }
     return Promise.reject(err);
   }
 );
