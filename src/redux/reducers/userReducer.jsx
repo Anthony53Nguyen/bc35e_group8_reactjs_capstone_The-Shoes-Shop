@@ -41,6 +41,8 @@ export const loginApi = (userLogin) => {
      * Lưu đăng nhập thành công vào localstorage
      */
     luuStoreJson(USER_LOGIN, result.data.content);
+
+    luuStoreJson(TOKEN, result.data.content.accessToken);
     /**
      * Lưu đăng nhập thành công vào cookie
      */

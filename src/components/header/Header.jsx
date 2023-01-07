@@ -1,6 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import {
+    huyStore,
+    eraseCookie,
+    USER_LOGIN,
+    TOKEN,
+  } from "../../util/config.jsx";
 
 const Header = () => {
     const { total } = useSelector((state) => state.cartReducer);
@@ -32,6 +38,18 @@ const Header = () => {
         </NavLink>
     }
 
+    const navigate = useNavigate();
+    const logOut = () => {     
+            return <NavLink className={'nav-link'} to="/home"  onClick={() => {
+                huyStore(USER_LOGIN);
+                eraseCookie(TOKEN);
+                navigate("/login");
+                window.location.reload();
+              }}>
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </NavLink>
+    }
+
     return (
         <header>
             <nav className="navbar navbar-expand-md">
@@ -55,12 +73,20 @@ const Header = () => {
                             {renderGioHang()}
                         </li>
                         <li className="nav-item">
+                            <NavLink className="nav-link" to="/profile" aria-current="page">
+                                Profile
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
                             {renderLogin()}
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/register" aria-current="page">
                                 Register
                             </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            {logOut()}
                         </li>
                     </ul>
                 </div>
